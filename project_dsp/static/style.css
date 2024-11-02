@@ -1,0 +1,106 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1d1f20, #323537);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Heading */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #6f42c1; /* Bootstrap-inspired purple */
+}
+
+/* Input Label */
+label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Input Box */
+#topicInput {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #6f42c1;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+    color: #1d1f20;
+}
+
+/* Button Styling */
+button {
+    background-color: #6f42c1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Added margin to move the button slightly lower */
+}
+
+button:hover {
+    background-color: #5a3797;
+}
+
+/* Recommendations Heading */
+h2 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Recommendations List */
+#recommendationsList {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Recommendation Items */
+#recommendationsList li {
+    background: #292b2c;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Podcast Title */
+#recommendationsList li strong {
+    color: #6f42c1;
+}
+
+/* Podcast Link */
+#recommendationsList li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+#recommendationsList li a:hover {
+    text-decoration: underline;
+    color: #6f42c1;
+}

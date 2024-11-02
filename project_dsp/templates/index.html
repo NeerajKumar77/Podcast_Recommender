@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Podcast Recommender</h1>
+    <label for="topicInput">Enter a topic:</label>
+    <input type="text" id="topicInput" placeholder="e.g., Technology">
+    <button onclick="fetchRecommendations()">Get Recommendations</button>
+    <h2>Top 5 Recommendations:</h2>
+    <ul id="recommendationsList"></ul>
+
+    <script>
+        function fetchRecommendations() {
+            const topic = document.getElementById("topicInput").value;
+            fetch(`/recommend?topic=${encodeURIComponent(topic)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const recommendationsList = document.getElementById("recommendationsList");
+                    recommendationsList.innerHTML = ""; // Clear previous recommendations
+                    if (data.length === 0) {
+                        recommendationsList.innerHTML = "<li>No recommendations found.</li>";
+                    } else {
+                        data.forEach(podcast => {
+                            const listItem = document.createElement("li");
+                            listItem.innerHTML = `<strong>${podcast.title}</strong><a href="${podcast.link}" target="_blank">${podcast.link}</a>`;
+                            recommendationsList.appendChild(listItem);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching recommendations:', error));
+        }
+    </script>
+</body>
+</html>
